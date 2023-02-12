@@ -1,0 +1,26 @@
+<p>Drop Down Page</p>
+
+<div class="container">
+  <form #signUpForm="ngForm" (ngSubmit)="Register(signUpForm)"  >
+    <label for="ddlName">Name: </label>
+    <select id="ddlName" name="ddlName" class="form-control" [(ngModel)]="value">
+      <option *ngFor="let theData of myDDL" [ngValue]="theData">
+        {{theData.name}}
+      </option>
+    </select>
+    <div class="myDiv1">
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+  </form>
+  <!--  <ul class="myUL">
+      <li
+        *ngFor="let theData of myDDL "
+        class="list-group-item">
+        -        {{ theData.name }}
+      </li>
+    </ul>-->
+</div>
+<div class="myDiv1">
+  <p *ngIf="this.gTestValue">Chosen Name is {{this.gTestValue}} after submission</p>
+</div>
+<router-outlet></router-outlet>

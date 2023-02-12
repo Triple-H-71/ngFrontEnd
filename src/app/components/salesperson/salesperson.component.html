@@ -1,0 +1,20 @@
+<div class="container">
+  <div *ngFor="let theData of myDDL; let i=index" (click)="getSelected({retData : myDDL[i]})"  name = "name">
+    {{theData.id}} {{theData.firstName}} {{theData.lastName}} {{theData.address}}
+    {{theData.phone}} {{theData.startDate}} {{theData.terminationDate}} {{theData.manager}}
+    Click here to edit
+  </div>
+</div>
+  <form #salespersonForm="ngForm" (ngSubmit)="Update(salespersonForm)"  >
+    <input type="text" name="FirstName" [(ngModel)]="firstName"><br>
+    <input type="text" name="LasttName" [(ngModel)]="lastName"><br>
+    <input type="text" name="Address" [(ngModel)]="address"><br>
+    <input type="text" name="phone" [(ngModel)]="phone"><br>
+    <input type="text" name="StartDate" [(ngModel)]="startDate"><br>
+    <input type="text" name="TermDate" [(ngModel)]="termDate"><br>
+    <input type="text" name="Manager" [(ngModel)]="manager"><br><br>
+    <div class="myDiv1">
+      <button class="btn btn-primary" type="submit">Update</button>
+    </div>
+  </form>
+<router-outlet></router-outlet>

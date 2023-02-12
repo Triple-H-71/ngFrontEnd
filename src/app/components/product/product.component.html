@@ -1,0 +1,19 @@
+<div class="container">
+  <div *ngFor="let theData of myDDL; let i=index" (click)="getSelected({retData : myDDL[i]})"  name = "name">
+    {{theData.id}} {{theData.name}} {{theData.manufacturer}} {{theData.style}}
+    {{theData.purchasePrice}} {{theData.qtyOnHand}} {{theData.commissionPercentage}}
+    Click here to edit
+  </div>
+</div>
+<form #productForm="ngForm" (ngSubmit)="Update(productForm)"  >
+  <input type="text" name="Name" [(ngModel)]="name"><br>
+  <input type="text" name="Manufacturer" [(ngModel)]="manufacturer"><br>
+  <input type="text" name="Style" [(ngModel)]="style"><br>
+  <input type="text" name="PurchasePrice" [(ngModel)]="purchasePrice"><br>
+  <input type="text" name="QtyOnHand" [(ngModel)]="qtyOnHand"><br>
+  <input type="text" name="CommissionPercentage" [(ngModel)]="commissionPercentage"><br><br>
+  <div class="myDiv1">
+    <button class="btn btn-primary" type="submit">Update</button>
+  </div>
+</form>
+<router-outlet></router-outlet>

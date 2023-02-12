@@ -1,0 +1,16 @@
+<div class="container">
+  <div *ngFor="let theData of myDDL; let i=index" (click)="getSelected({retData : myDDL[i]})"  name = "name">
+    {{theData.id}} {{theData.productId}} {{theData.salesPersonId}} {{theData.customerId}}
+    {{theData.salesDate}}
+  </div>
+</div>
+<form #salesForm="ngForm" (ngSubmit)="CreateSale(salesForm)"  >
+  <input type="text" name="ProductID" [(ngModel)]="productID"><br>
+  <input type="text" name="SalesPersonID" [(ngModel)]="salesPersonID"><br>
+  <input type="text" name="CustomerID" [(ngModel)]="customerID"><br>
+  <input type="text" name="SalesDate" [(ngModel)]="salesDate"><br>
+  <div class="myDiv1">
+    <button class="btn btn-primary" type="submit">Create</button>
+  </div>
+</form>
+<router-outlet></router-outlet>
